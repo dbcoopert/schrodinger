@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my social media</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Feather Icons CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(20deg, darkblue, #2196F3, darkblue);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+ 
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+          
+        }
+
+        .profile {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 17px;
+            width: 50%;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-repeat: no-repeat;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px;
+            border: 2px solid black;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile h1 {
+            color: black;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+		.profile h2 {
+            color: black;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-family: fantasy;
+		}
+        .profile a {
+            color: darkblue;
+            display: block;
+            text-align: center;
+            margin-bottom: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: initial;
+        }
+
+		.profile ul {
+		    list-style: none;
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    flex-direction: column; /* Mengubah susunan menjadi vertikal */
+		    align-items: center; /* Untuk menengahkan elemen */
+		    
+        }
+
+       .profile ul li {
+   			 margin: 0px 0; /* Memberikan jarak antar elemen */
+        }
+
+        .profile ul li a {
+            color: darkblue;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .profile ul li i {
+            margin-right: 1px;
+        }
+
+        .profile ul li a:hover {
+            color: #FF5733; /* Warna oranye lebih terang saat hover */
+        }
+
+		.profile h6 a {
+		    color: darkblue;
+		    position: absolute;
+		    bottom: 10px; /* Atur jarak dari bawah */
+		    right: 30px; /* Atur jarak dari kanan */
+		    font-size: 8px;
+}
+
+		.profile h6 a:hover {
+            color: red;
+}
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <div class="overlay"></div>
+            <img src="npu.jpeg" alt="My Profile Image">
+            <h1>Asep 13</h1>
+            <h2>---MY SOCIAL MEDIA---</h2>
+            <ul>
+                <li><a href="https://www.facebook.com/asep.m.79230" target="_blank"><i data-feather="facebook"></i>Facebook</a></li>
+                <li><a href="https://www.instagram.com/asppm_" target="_blank"><i data-feather="instagram"></i>Instagram</a></li>
+                <li><a href="https://www.twitter.com/M13Asep" target="_blank"><i data-feather="twitter"></i>Twitter</a></li>
+                <li><a href="https://www.youtube.com/@lawsnip7451" target="_blank"><i data-feather="youtube"></i>Youtube</a></li>
+                <li><a href="https://wa.me/085759432775" target="_blank"><i data-feather="message-circle"></i>WhatApp</a></li>
+            </ul>
+              <h6><a href="https://www.instagram.com/jkt48.freya">my gf</a></h6>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Feather Icons JS -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
