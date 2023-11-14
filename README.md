@@ -1,2 +1,2 @@
-# scrodinger
+# schrodinger
 Web
