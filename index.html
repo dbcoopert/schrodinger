@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>my social media</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -15,40 +16,98 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background: linear-gradient(20deg, darkblue, #2196F3, darkblue);
+            background: linear-gradient(20deg, black, #272727, black);
             color: #fff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             font-family: 'Inter', sans-serif;
             margin: 0;
+            overflow: hidden;
         }
- 
+
         .container {
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-          
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stars {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 10s linear infinite, shooting-star 5s linear infinite;
+            opacity: 0;
+            /* Awalnya tidak terlihat */
+            pointer-events: none;
+            /* Tidak memengaruhi interaksi */
+        }
+
+        @keyframes twinkle {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.5;
+                /* Terlihat samar */
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes shooting-star {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-100vw) translateY(100vh);
+                opacity: 0;
+            }
         }
 
         .profile {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.2);
             border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 17px;
-            width: 50%;
-            max-width: 100%;
+            padding: 0;
+            width: 600px;
             position: relative;
             overflow: hidden;
-            background-repeat: no-repeat;
+            gap: 1rem;
+            max-width: 90%;
+            text-align: center;
+            margin: auto;
+            border: 1px solid black;
         }
 
         .profile img {
@@ -62,90 +121,213 @@
         }
 
         .profile h1 {
-            color: black;
+            color: white;
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 22px;
+            margin-bottom: 5px;
+            font-size: 23px;
+            font-weight: 600px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
 
-	.profile h2 {
-            color: black;
-            text-align: center;
+        
+
+        .letterboxd img  {
             margin-bottom: 20px;
-            font-size: 15px;
-            font-family: fantasy;
-		}
+            width: 25px;
+            height:25px;
+            position: absolute;
+            right: 73px;
+            top: 0px;
+        }
+
+
+        .letterboxd a {
+            position: relative;
+            left: 18px;
+        }
+
+        .letterboxd a:hover {
+            color: orange;
+        }
+
+        .letterboxd img:hover {
+            border: white;
+        }
+
         .profile a {
-            color: darkblue;
+            color: skyblue;
             display: block;
             text-align: center;
             margin-bottom: 25px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
             font-family: initial;
+            
         }
 
-		.profile ul {
-		    list-style: none;
-		    margin: 0;
-		    padding: 0;
-		    display: flex;
-		    flex-direction: column; /* Mengubah susunan menjadi vertikal */
-		    align-items: center; /* Untuk menengahkan elemen */
-		    
+        .profile ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
         }
 
-       .profile ul li {
-   			 margin: 0px 0; /* Memberikan jarak antar elemen */
+        .profile ul li {
+            margin: 0 0;
         }
 
         .profile ul li a {
-            color: darkblue;
+            color: skyblue;
             display: flex;
             align-items: center;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s ease-in-out;
+            gap: 3px;
         }
 
-        .profile ul li i {
-            margin-right: 1px;
+        .profile ul li .facebook a:hover {
+            padding: 4px;
+            color: white;
+            background-color: rgb(7, 50, 168);
+            border-radius: 10px;
         }
 
-        .profile ul li a:hover {
-            color: #FF5733; /* Warna oranye lebih terang saat hover */
-	    font-size: 20px;
-        }
-
-		.profile h6 a {
-		    color: darkblue;
-		    position: absolute;
-		    bottom: 10px; /* Atur jarak dari bawah */
-		    right: 30px; /* Atur jarak dari kanan */
-		    font-size: 8px;
-}
-
-		.profile h6 a:hover {
+        .profile ul li .instagram a:hover {
+            padding: 4px;
             color: red;
-}
+            background-color: black;
+            border-radius: 10px;
+        }
+
+        .profile ul li .twitter a:hover {
+            padding: 4px;
+            color: white;
+            background-color: rgb(46, 103, 207);
+            border-radius: 10px;
+        }
+
+        .profile ul li .youtube a:hover {
+            padding: 4px;
+            color: white;
+            background-color: red;
+            border-radius: 10px;
+        }
+
+        .profile ul li .whatsapp a:hover {
+            padding: 4px;
+            color: white;
+            background-color: green;
+            border-radius: 10px;
+        }
+
+        .profile h6 a {
+            color: limegreen;
+            position: absolute;
+            bottom: 10px;
+            right: 30px;
+            font-size: 8px;
+        }
+
+        .profile h6 a:hover {
+            color: red;
+        }
+
+        @media (max-width: 800px) {
+            .profile {
+                width: 100%;
+                padding: 20px;
+                margin: 50px;
+            }
+
+            .profile img {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 10px;
+            }
+
+            .profile h1 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .letterboxd img a{
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            .letterboxd img {
+            margin-bottom: 20px;
+            width: 20px;
+            height:20px;
+            position: absolute;
+            right: 77px;
+            top: 3px;
+            }
+
+            .profile h6 a {
+                font-size: 10px;
+                bottom: 5px;
+                right: 10px;
+            }
+
+            .profile ul {
+                flex-direction: column;
+            }
+
+            @media (max-width: 600px) {
+                .profile {
+                    width: 100%;
+                    height: 600px;
+                }
+
+                .profile ul {
+                    flex-direction: column;
+                    align-items: center;
+                    max-width: 500px;
+                    margin: 0 auto;
+                }
+
+                .profile ul li {
+                    width: 100%;
+                    text-align: center;
+                     height: 30px;
+                }
+            }
+        }
     </style>
 
 </head>
+
 <body>
     <div class="container">
+        <div class="stars">
+            <!-- Tambahkan elemen bintang-bintang di sini -->
+        </div>
         <div class="profile">
             <div class="overlay"></div>
             <img src="npu.jpeg" alt="My Profile Image">
-            <h1>Asep 13</h1>
-            <h2>MY SOCIAL MEDIA</h2>
+            <h1>Asep</h1>
+            <div class="letterboxd"><a href="https://letterboxd.com/asepstrange/" target="_blank">
+                    <img src="letterboxd.jpg" alt="letterboxd">
+                    LetterBoxd
+                </a>
+            </div>
             <ul>
-                <li><a href="https://www.facebook.com/asep.m.79230" target="_blank"><i data-feather="facebook"></i>Facebook</a></li>
-                <li><a href="https://www.instagram.com/asppm_" target="_blank"><i data-feather="instagram"></i> Instagram</a></li>
-                <li><a href="https://www.twitter.com/M13Asep" target="_blank"><i data-feather="twitter"></i> Twitter</a></li>
-                <li><a href="https://www.youtube.com/@lawsnip7451" target="_blank"><i data-feather="youtube"></i> Youtube</a></li>
-                <li><a href="https://wa.me/+6285759432775" target="_blank"><i data-feather="message-circle"></i> WhatsApp</a></li>
+                <li><span class="facebook"><a href="https://www.facebook.com/asep.m.79230" target="_blank"><i
+                                data-feather="facebook"></i>Facebook</a></span></li>
+                <li><span class="instagram"><a href="https://www.instagram.com/asppm_" target="_blank"><i
+                                data-feather="instagram"></i>Instagram</a></span></li>
+                <li><span class="twitter"><a href="https://www.twitter.com/M13Asep" target="_blank"><i
+                                data-feather="twitter"></i> Twitter</a></span></li>
+                <li><span class="youtube"><a href="https://www.youtube.com/@lawsnip7451" target="_blank"><i
+                                data-feather="youtube"></i>Youtube</a></span></li>
+                <li><span class="whatsapp"><a href="https://wa.me/+6285759432775" target="_blank"><i
+                                data-feather="message-circle"></i>WhatsApp</a></span></li>
             </ul>
-              <h6><a href="https://www.instagram.com/jkt48.freya">my girlfriend</a></h6>
+            <h6><a href="https://www.instagram.com/jkt48.freya">my gf</a></h6>
         </div>
     </div>
 
@@ -157,5 +339,21 @@
     <script>
         feather.replace();
     </script>
+    <script>
+        // Generate random stars
+        const starsContainer = document.querySelector('.stars');
+        const numberOfStars = 100;
+
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 10}s`;
+
+            starsContainer.appendChild(star);
+        }
+    </script>
 </body>
+
 </html>
